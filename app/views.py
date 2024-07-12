@@ -1,5 +1,9 @@
-from django.shortcuts import render
 
-# Create your views here.
-def home(request):
-    return render(request,"index.html")
+from rest_framework import generics
+from .models import *
+from .serializers import *
+
+
+class DataView(generics.ListAPIView):
+    queryset= DataEntry.objects.all()
+    serializer_class=DataentrySerializers

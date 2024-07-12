@@ -10,3 +10,8 @@ class DataEntry(models.Model):
     region = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     # Add other fields as necessary
+    def __str__(self):
+        if self.country:
+            return f"{self.country}"
+        else:
+            return str(self.id)
